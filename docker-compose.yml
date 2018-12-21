@@ -72,7 +72,6 @@ services:
 #    command: start --kong-url http://kong:8001
 #    ports:
 #      - 8080:8080
-#    restart: on-failure
 
   konga:
     image: pantsel/konga:latest
@@ -88,7 +87,6 @@ services:
       DB_HOST: konga-database
       KONGA_SEED_USER_DATA_SOURCE_FILE: /app/user_seed.js
       NODE_ENV: production
-    restart: on-failure
 
 volumes:
   kong_data:
