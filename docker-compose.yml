@@ -19,8 +19,7 @@ services:
     build: ./kong
     container_name: kong-migration
     depends_on:
-      kong-database:
-        condition: service_healthy
+      - kong-database
     environment:
       KONG_DATABASE: postgres
       KONG_PG_HOST: kong-database
@@ -35,10 +34,8 @@ services:
     build: ./kong
     container_name: kong
     depends_on:
-      kong-database:
-        condition: service_healthy
-      kong-migration:
-        condition: service_healthy
+      - kong-database
+      - kong-migration
     environment:
       KONG_DATABASE: postgres
       KONG_PG_HOST: kong-database
@@ -85,8 +82,7 @@ services:
     build: ./konga
     container_name: konga
     depends_on:
-      konga-database:
-        condition: service_healthy
+      - konga-database
     volumes:
       - ./konga/user_seed.js:/app/user_seed.js:ro
     ports:
