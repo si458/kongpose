@@ -63,16 +63,6 @@ services:
       timeout: 5s
       retries: 5
 
-#  kong-dashboard:
-#    image: pgbi/kong-dashboard:v3
-#    container_name: kong-dashboard
-#    depends_on:
-#      kong:
-#        condition: service_healthy
-#    command: start --kong-url http://kong:8001
-#    ports:
-#      - 8080:8080
-
   konga:
     image: pantsel/konga:latest
     depends_on:
