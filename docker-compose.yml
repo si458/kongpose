@@ -77,15 +77,12 @@ services:
     image: pantsel/konga:latest
     depends_on:
       - konga-database
-    volumes:
-      - ./konga/user_seed.js:/app/user_seed.js:ro
     ports:
       - 1337:1337
     environment:
       DB_ADAPTER: mongo
       DB_DATABASE: konga
       DB_HOST: konga-database
-      KONGA_SEED_USER_DATA_SOURCE_FILE: /app/user_seed.js
       NODE_ENV: production
 
 volumes:
