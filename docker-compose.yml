@@ -15,7 +15,7 @@ services:
       retries: 5
 
   kong-migration:
-    build: ./kong
+    image: kong:latest
     depends_on:
       - kong-database
     environment:
@@ -29,7 +29,7 @@ services:
       retries: 5
 
   kong:
-    build: ./kong
+    image: kong:latest
     depends_on:
       - kong-database
       - kong-migration
@@ -75,7 +75,7 @@ services:
 #    restart: on-failure
 
   konga:
-    build: ./konga
+    image: pantsel/konga:latest
     depends_on:
       - konga-database
     volumes:
