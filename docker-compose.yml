@@ -73,7 +73,6 @@ services:
       DB_ADAPTER: mongo
       DB_DATABASE: konga
       DB_HOST: konga-database
-      NODE_ENV: production
 
 volumes:
   kong_data:
